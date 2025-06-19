@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+    <header class="header">
+        <div class="container">
+            <h1>Job Tracker</h1>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <div class="content-grid">
+            <!-- Left Column: Tasks -->
+            <div class="tasks-section">
+                <div class="section-header">
+                    <h2>Tasks</h2>
+                    <button id="new-task-btn" class="btn btn-primary">+ New Task</button>
+                </div>
+
+                <!-- Task Form (hidden by default) -->
+                <div id="task-form-container" class="task-form-container hidden">
+                    <form id="task-form" class="task-form">
+                        <h3 id="form-title">Create New Task</h3>
+
+                        <div class="form-group">
+                            <label for="task-name">Name *</label>
+                            <input type="text" id="task-name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-description">Description</label>
+                            <textarea id="task-description" name="description" rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-due-date">Due Date</label>
+                            <input type="datetime-local" id="task-due-date" name="due_date">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="task-frequency">Frequency</label>
+                            <select id="task-frequency" name="frequency">
+                                <option value="None">None</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="Yearly">Yearly</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="recurrence-group" style="display: none;">
+                            <label for="task-recurrence-date">Recurrence End Date</label>
+                            <input type="datetime-local" id="task-recurrence-date" name="recurrence_date">
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" id="cancel-form" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Task List -->
+                <div id="task-list" class="task-list">
+                    <div class="loading">Loading tasks...</div>
+                </div>
+            </div>
+
+            <!-- Right Column: Calendar -->
+            <div class="calendar-section">
+                <div id="calendar-container" class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month" class="calendar-nav">◀</button>
+                        <h2 id="calendar-title"></h2>
+                        <button id="next-month" class="calendar-nav">▶</button>
+                    </div>
+                    <div id="calendar-grid" class="calendar-grid">
+                        <div class="loading">Loading calendar...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

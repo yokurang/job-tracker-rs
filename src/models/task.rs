@@ -114,7 +114,7 @@ impl From<TaskRow> for Task {
 }
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TaskCreate {
-    pub title: String,
+    pub name: String,
     pub description: Option<String>,
     pub due_date: Option<DateTime<Utc>>,
     pub frequency: TaskFrequency,
@@ -123,7 +123,7 @@ pub struct TaskCreate {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct TaskUpdate {
-    pub title: Option<String>,
+    pub name: Option<String>,
     pub description: Option<String>,
     pub status: Option<TaskStatus>,
     pub due_date: Option<DateTime<Utc>>,
